@@ -1,16 +1,15 @@
-import vertexai
 from .agent_tools import tools
 from google.adk.agents import Agent, BaseAgent
 from dotenv import load_dotenv
 import os
+import google.generativeai as genai
 from adk_agent.coordinator_agent import CoordinatorAgent
 from adk_agent.estimated_price_output import EstimatedPriceOutput
 
 load_dotenv()
 
-project=os.getenv("GOOGLE_CLOUD_PROJECT")
-location=os.getenv("GOOGLE_CLOUD_LOCATION")
-vertexai.init(project=project, location=location)
+# genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+
 
 
 SYSTEM_PROMPT = r"""
